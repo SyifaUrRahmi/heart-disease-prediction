@@ -1,0 +1,17 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "Times New Roman", Times, serif;
+}
+
+.form-input {
+	padding: 30px;
+	/* margin-left: 10%;
+    width: 80%; */
+	background-color: #ffffff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+	background-color: rgba(255, 0, 0, 0.6);
+}
