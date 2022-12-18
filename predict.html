@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Heart Disease Prediction</title>
+
+		<link
+			rel="stylesheet"
+			href="{{url_for('static', filename='css/style.css')}}"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous"
+		/>
+	</head>
+
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">
+						<img
+							src="../static/love.png"
+							alt="Logo"
+							width="70"
+							height="35"
+							class="d-inline-block align-text-top"
+						/>
+						HeartDisease <b class="teks text-dark">Prediction</b></a
+					>
+
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNavAltMarkup"
+						aria-controls="navbarNavAltMarkup"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div
+						class="collapse navbar-collapse order-md-0"
+						id="navbarNavAltMarkup"
+					>
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+							<li class="nav-item me-4">
+								<a class="nav-link" aria-current="page" href="/">Data</a>
+							</li>
+							<li class="nav-item me-4">
+								<a class="nav-link active" href="/prediction">Prediction</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- End Navbar -->
+		</header>
+
+		<div class="container mt-4">
+			<div class="row d-fex">
+				<div class="col-md-5 col-ms-10 mb-4">
+					<main class="input">
+						<section class="form-input text-center rounded">
+							<form action=""></form>
+							<form action="/prediction" method="post">
+								<h2>Indicators of Heart Disease</h2>
+
+								<!-- <div class="form-floating mb-2 mt-3">
+									<input
+										type="text"
+										id="nama"
+										name="nama"
+										class="form-control"
+										placeholder="nama"
+									/>
+									<label for="nama">Nama</label>
+								</div> -->
+
+								<div class="form-floating mb-2 mt-3">
+									<input
+										type="number"
+										id="bmi"
+										name="bmi"
+										class="form-control"
+										step="0.005"
+										placeholder="bmi"
+										required
+									/>
+									<label for="bmi">BMI</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="smoking"
+										name="smoking"
+										placeholder="smoking"
+										class="form-select"
+									>
+										<option value="0">Yes</option>
+										<option value="1">No</option>
+									</select>
+									<label for="FloatingSelect">Smoking</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="aldrink"
+										name="aldrink"
+										placeholder="aldrink"
+										class="form-select"
+									>
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>
+									<label for="FloatingSelect">Alcohol Drinking</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="stroke"
+										name="stroke"
+										placeholder="stroke"
+										class="form-select"
+									>
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>
+									<label for="FloatingSelect">Stroke</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<input
+										type="number"
+										id="physicalh"
+										name="physicalh"
+										placeholder="physicalh"
+										class="form-control"
+										required
+									/>
+									<label for="floatingInput">Physical Health</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<input
+										type="number"
+										id="mentalh"
+										name="mentalh"
+										placeholder="mentalh"
+										class="form-control"
+										required
+									/>
+									<label for="floatingInput">Mental Health</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										class="form-select"
+										type="number"
+										id="diffwl"
+										name="diffwl"
+										placeholder="diffwl"
+									>
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>
+									<label for="floatingSelect">Diff Walking</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										class="form-select"
+										type="number"
+										id="sex"
+										name="sex"
+										placeholder="sex"
+									>
+										<option value="0">Female</option>
+										<option value="1">Male</option>
+									</select>
+									<label for="floatingSelect">Sex</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="age"
+										name="age"
+										class="form-select"
+										placeholder="age"
+									>
+										<option value="9">18-24</option>
+										<option value="12">25-29</option>
+										<option value="11">30-34</option>
+										<option value="10">35-39</option>
+										<option value="4">40-44</option>
+										<option value="8">45-49</option>
+										<option value="7">50-54</option>
+										<option value="0">55-59</option>
+										<option value="6">60-64</option>
+										<option value="2">65-69</option>
+										<option value="5">70-74</option>
+										<option value="3">75-79</option>
+										<option value="1">80 or older</option>
+									</select>
+									<label for="floatingSelect">Age Category</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="race"
+										name="race"
+										class="form-select"
+										placeholder="race"
+									>
+										<option value="0">White</option>
+										<option value="1">Black</option>
+										<option value="2">Asian</option>
+										<option value="3">American Indian/Alaskan Native</option>
+										<option value="4">Other</option>
+										<option value="5">Hispanic</option>
+									</select>
+									<label for="floatingSelect">Race</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="diabetic"
+										name="diabetic"
+										class="form-select"
+										placeholder="diabetic"
+									>
+										<option value="0">Yes</option>
+										<option value="1">No</option>
+										<option value="2">No, borderline diabetes</option>
+										<option value="3">Yes (during pregnancy)</option>
+									</select>
+									<label for="floatingSelect">Diabetic</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="pactivity"
+										name="pactivity"
+										class="form-select"
+										placeholder="pactivity"
+									>
+										<option value="0">Yes</option>
+										<option value="1">No</option>
+									</select>
+									<label for="floatingSelect">Physical Activity</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="genh"
+										name="genh"
+										class="form-select"
+										placeholder="genh"
+									>
+										<option value="0">Very good</option>
+										<option value="1">Fair</option>
+										<option value="2">Good</option>
+										<option value="3">Poor</option>
+										<option value="4">Excellent</option>
+									</select>
+									<label for="floatingSelect">Gen Health</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<input
+										type="number"
+										id="sleept"
+										name="sleept"
+										class="form-control"
+										placeholder="sleept"
+										required
+									/>
+									<label for="floatingInput">Sleep Time</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="asthma"
+										name="asthma"
+										class="form-select"
+										placeholder="asthma"
+									>
+										<option value="0">Yes</option>
+										<option value="1">No</option>
+									</select>
+									<label for="floatingSelect">Asthma</label>
+								</div>
+
+								<div class="form-floating mb-2">
+									<select
+										type="number"
+										id="kidneyd"
+										name="kidneyd"
+										class="form-select"
+										placeholder="kidneyd"
+									>
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>
+									<label for="floatingSelect">Kidney Disease </label>
+								</div>
+
+								<div class="form-floating mb-4">
+									<select
+										type="number"
+										id="skinc"
+										name="skinc"
+										class="form-select"
+										placeholder="scinc"
+									>
+										<option value="0">Yes</option>
+										<option value="1">No</option>
+									</select>
+									<label for="floatingSelect">Skin Cancer</label>
+								</div>
+								<button class="btn btn-danger" type="submit">Predict</button>
+							</form>
+						</section>
+					</main>
+				</div>
+				<div class="col-md-7 col-ms-10">
+					<div class="hasil-prediksi">
+						<h3 class="bg bg-danger text-center text-light rounded mb-4">
+							Hasil Prediksi Penyakit Jantung
+						</h3>
+						<h4 class="text-center">Heart Disease Prediction Yes or No</h4>
+						<h1 class="text-center">
+							<img src="../static/love.png" alt="" width="100" />{{ tree }}
+						</h1>
+					</div>
+
+					<div class="menu-predic">
+						<div class="table-container mb-4">
+							<div class="tabel data">
+								<table class="table">
+									<thead>
+										<tr>
+											<th rowspan="2">{{method}}</th>
+											<th rowspan="2">{{prediction}}</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr>
+											<td>{{tree_method}}</td>
+											<td class="txt-center">{{ tree }}</td>
+										</tr>
+										<tr>
+											<td>{{knn_method}}</td>
+											<td class="txt-center">{{ knn }}</td>
+										</tr>
+										<tr>
+											<td>{{rlogic_method}}</td>
+											<td class="txt-center">{{ rlogic }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
