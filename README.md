@@ -17,5 +17,8 @@ import seaborn as sns
 import missingno as msno
 from scipy import stats
 ```
+```python
+data = pd.read_csv('../csv/heart_2020_cleaned.csv')
+```
 
 
