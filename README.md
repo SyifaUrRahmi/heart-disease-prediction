@@ -34,5 +34,29 @@ data.head(10)
 8	No	26.45	No	No	No	0.0	0.0	No	Female	80 or older	White	No, borderline diabetes	No	Fair	5.0	No	Yes	No
 9	No	40.69	No	No	No	0.0	0.0	Yes	Male	65-69	White	No	Yes	Good	10.0	No	No	No
 ```
+```python
+data.dtypes
+```
+```python
+HeartDisease         object
+BMI                 float64
+Smoking              object
+AlcoholDrinking      object
+Stroke               object
+PhysicalHealth      float64
+MentalHealth        float64
+DiffWalking          object
+Sex                  object
+AgeCategory          object
+Race                 object
+Diabetic             object
+PhysicalActivity     object
+GenHealth            object
+SleepTime           float64
+Asthma               object
+KidneyDisease        object
+SkinCancer           object
+dtype: object
+```
 
 
