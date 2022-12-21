@@ -37,7 +37,7 @@ data.head(10)
 ```python
 data.dtypes
 ```
-```python
+```
 HeartDisease         object
 BMI                 float64
 Smoking              object
