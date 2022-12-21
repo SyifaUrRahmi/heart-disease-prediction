@@ -18,7 +18,8 @@ import missingno as msno
 from scipy import stats
 ```
 ```python
-data = pd.read_csv('../csv/heart_2020_cleaned.csv')
+data = pd.read_csv('/content/drive/MyDrive/Syifa Ur Rahmi_H071211066/Classification/heart_2020_cleaned.csv')
+data.head(10)
 ```
 
 
