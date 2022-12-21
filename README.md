@@ -6,3 +6,16 @@ Heart disease is a condition when the heart is disturbed. 1 of the 3 main risk f
 
 ## Processing Data
 
+IMPORTING LIBRARIES AND LOADING DATA
+```python
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+import missingno as msno
+from scipy import stats
+```
+
+
